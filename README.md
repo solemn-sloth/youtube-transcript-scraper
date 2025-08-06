@@ -7,6 +7,7 @@ A command-line tool for extracting and saving transcripts from YouTube videos wi
 ## Features
 
 - 🎬 **Simple URL Input**: Works with various YouTube URL formats
+- 🔍 **Search Functionality**: Search YouTube videos by keywords and process top results
 - 📃 **Clean Output**: Saves transcripts to text files without timestamps
 - ✨ **Interactive UI**: Terminal-based interface with progress indicators
 - 🌈 **Color-coded Output**: Visual feedback with ANSI color formatting
@@ -16,6 +17,7 @@ A command-line tool for extracting and saving transcripts from YouTube videos wi
 
 - Python 3.6+
 - `youtube-transcript-api` package
+- `selenium` package (for YouTube search functionality)
 
 ## Installation
 
@@ -25,9 +27,9 @@ A command-line tool for extracting and saving transcripts from YouTube videos wi
    cd youtube-transcript-scraper
    ```
 
-2. Install the required dependency:
+2. Install the required dependencies:
    ```
-   pip install youtube-transcript-api
+   pip install youtube-transcript-api selenium
    ```
 
 ## Usage
@@ -37,15 +39,22 @@ Run the script:
 python YT_Scraper.py
 ```
 
-Enter a YouTube URL when prompted. The script accepts:
+Enter a YouTube URL or search query when prompted:
+
+**For direct URL processing**, the script accepts:
 - Full YouTube URLs (e.g., `https://www.youtube.com/watch?v=VIDEO_ID`)
 - Short YouTube URLs (e.g., `https://youtu.be/VIDEO_ID`)
 - Embed URLs (e.g., `https://www.youtube.com/embed/VIDEO_ID`)
 - Direct Video IDs (11-character alphanumeric strings)
 
+**For search functionality**:
+- Enter any search term or phrase to find YouTube videos
+- The script will search YouTube and process the top results (default: 3 videos)
+- You can modify the `DEFAULT_VIDEO_COUNT` variable in the script to change the number of search results processed
+
 ## Output
 
-Transcripts are saved as text files in the current directory with the naming format:
+Transcripts are saved as text files in the `Transcripts` folder with the naming format:
 ```
 VIDEO_ID_DDMMYY.txt
 ```
